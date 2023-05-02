@@ -1,5 +1,6 @@
 # Compiled class file
 *.class
+out
 
 # Log file
 *.log
@@ -25,7 +26,6 @@ replay_pid*
 
 # personal
 Test.java
-
 
 # Intellij
 .idea
