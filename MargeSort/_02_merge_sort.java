@@ -7,13 +7,10 @@ package MargeSort;
 public class _02_marge_sort {
 
     // 정렬할 배열
-    private static int[] sorted;
 
     public static void merge_sort(int[] a) {
 
-        sorted = new int[a.length];
         merge_sort(a, 0, a.length - 1);
-        sorted = null;
     }
 
     private static void merge_sort(int[] a, int left, int right) {
@@ -42,9 +39,12 @@ public class _02_marge_sort {
 
     private static void merge(int[] a, int left, int mid, int right) {
 
+        int length = right - left;
+        int[]sorted = new int[length];
+        int idx = 0;
+
         int lo = left;
         int hi = mid + 1;
-        int idx = left;
 
         while (lo <= mid && hi <= right) {
 
@@ -63,8 +63,9 @@ public class _02_marge_sort {
                 sorted[idx++] = a[lo++];
         }
 
-        while (left <= right) {
-            a[left] = sorted[left++];
-        }
+        idx = 0;
+        while (idx <= length)
+            a[left++] = sorted[idx++];
+
     }
 }
