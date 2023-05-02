@@ -4,7 +4,7 @@ package MargeSort;
  * 반복문으로 작성
  */
 
-public class _02_marge_sort {
+public class _02_merge_sort {
 
     // 정렬할 배열
 
