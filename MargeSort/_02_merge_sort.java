@@ -30,7 +30,7 @@ public class _02_merge_sort {
              */
             for (int l = 0; l <= right - size; l += size << 1) {
                 int lo = l;
-                int mid = 1 + size - 1;
+                int mid = l + size - 1;
                 int hi = Math.min(l + (size << 1) - 1, right);
                 merge(a, lo, mid, hi);
             }
@@ -40,7 +40,7 @@ public class _02_merge_sort {
     private static void merge(int[] a, int left, int mid, int right) {
 
         int length = right - left;
-        int[]sorted = new int[length];
+        int[]sorted = new int[length + 1];
         int idx = 0;
 
         int lo = left;
@@ -54,14 +54,11 @@ public class _02_merge_sort {
                 sorted[idx++] = a[hi++];
         }
 
-        if (lo > mid) {
-            while (hi <= right)
-                sorted[idx++] = a[hi++];
-        }
-        else {
-            while (lo <= mid)
-                sorted[idx++] = a[lo++];
-        }
+        while (hi <= right)
+            sorted[idx++] = a[hi++];
+
+        while (lo <= mid)
+            sorted[idx++] = a[lo++];
 
         idx = 0;
         while (idx <= length)
